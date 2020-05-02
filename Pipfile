@@ -1,0 +1,34 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-wtf = "*"
+flask-migrate = "*"
+flask-login = "*"
+itsdangerous = "*"
+config = "*"
+sqlalchemy-serializer = "*"
+flask-swagger-ui = "*"
+flask-restplus = "*"
+flask-restful = "*"
+autodoc = "*"
+flask-api = "*"
+flask-autodoc = "*"
+flask-restful-swagger = "*"
+flask-limiter = "*"
+flask-script = "*"
+apscheduler = "*"
+werkzeug = "~=0.16.1"
+gunicorn = "*"
+pdfkit = "*"
+wkhtmltopdf = "*"
+email-validator = "*"
+
+[requires]
+python_version = "3.8"

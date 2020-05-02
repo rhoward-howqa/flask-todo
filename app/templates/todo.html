@@ -1,0 +1,51 @@
+{%  extends "base.html" %}
+{% block title %}
+<title>Docket - Welcome</title>
+{% endblock %}
+{% block script %}
+<script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="row justify-content-md-center">
+    <div class="welcome col-md-auto">
+        <strong><h1>Hello {{ current_user.username }}</h1></strong>
+        <br>
+        <h2>What do you need to do today?</h2>
+        <br>
+    </div>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.todo (id="todoInput") }}
+                <button class="btn btn-primary btn-sm updateButton">Add todo</button>
+            </div>
+        </form>
+            <div id="todoList">
+                <ul class="list-group">
+                {% for todo in todos %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div id="todoItem">{{ todo.body }}</div>
+                        <button type="button" class="close" aria-label="Close"><span id="delete" class="{{ todo.id }}" aria-hidden="true">&times;</span></button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        <p>
+	        <a href="/download">Download Todos</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

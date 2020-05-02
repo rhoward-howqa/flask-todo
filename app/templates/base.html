@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        {% block title %}
+        {% endblock %}
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand">Docket</span>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('Docket.index') }}">Home</a>
+                </li>
+                {% if current_user.is_anonymous %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Docket.login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Docket.register') }}">Register</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Docket.profile') }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Docket.todo') }}">Todo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('Docket.logout') }}">Logout</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container text-center">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+    <div class="footer text-center">
+        <p>Created by Kevin Tuck | Download the code <a href="https://github.com/keva161/Docket">here</a> | <a href="http://kevintuck.co.uk/">Visit my website</a> | Run into problems? Connect with me on <a href="http://twitter.com/keva161">Twitter</a>.</p>
+    </div>
+    </body>
+</html>

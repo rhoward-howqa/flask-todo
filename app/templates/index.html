@@ -1,0 +1,50 @@
+{%  extends "base.html" %}
+{% block title %}
+<title>Docket - Simple Todo application for you to practise your API testing</title>
+{% endblock %}
+{% block navbar %}
+{% endblock %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="logo">
+    <img src="/static/img/logo.png">
+</div>
+<div class="intro-text">
+    <h4>Docket is fully fledged Todo web application for you to practise and learn about API testing.</h4>
+</div>
+<hr>
+<div class="row justify-content-md-center">
+    <div class="col-md-auto">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td class="text-left"><p><strong>C</strong>reate new users and todo items</p></td>
+            </tr>
+            <tr>
+                <td class="text-left"><p><strong>R</strong>ead your todo's via the web application and API protocol</p></td>
+            </tr>
+            <tr>
+                <td class="text-left"><p><strong>U</strong>pdate your user details</p></td>
+            </tr>
+            <tr>
+                <td class="text-left"><p><strong>D</strong>elete todo's and account from the database</p></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="cta">
+        <h5>Example Python API tests can be downloaded <a href="https://github.com/keva161/DocketTests">here</a></h5>
+        <br>
+        <p>The API is limited to 50 API calls per day and the application resets itself every 15 minutes. Please contact me if you need an extension. There are intended bugs, but please reach out if you are having issues!</p>
+    </div>
+</div>
+
+{% endblock %}
