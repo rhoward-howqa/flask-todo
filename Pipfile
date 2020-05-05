@@ -28,6 +28,7 @@ werkzeug = "~=0.16.1"
 gunicorn = "*"
 pdfkit = "*"
 wkhtmltopdf = "*"
+email-validator = "*"
 
 [requires]
 python_version = "3.8"
