@@ -92,12 +92,12 @@ def profile():
 
 @site.route('/download')
 def pdf_template():
-    form = TodoForm()
     todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
     rendered = render_template('pdf.html', todos=todos)
-    path_wkthmltopdf = b'C:\Program Files\wkhtmltopdf\\bin\wkhtmltopdf.exe'
-    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-    pdf = pdfkit.from_string(rendered, False, configuration=config)
+    #path_wkthmltopdf = b'C:\Program Files\wkhtmltopdf\\bin\wkhtmltopdf.exe'
+    #config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+    #pdf = pdfkit.from_string(rendered, False, configuration=config)
+    pdf = pdfkit.from_string(rendered, False)
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = 'attachment; filename= My_Todos.pdf'

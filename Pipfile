@@ -29,6 +29,7 @@ gunicorn = "*"
 pdfkit = "*"
 wkhtmltopdf = "*"
 email-validator = "*"
+xvfb = "*"
 
 [requires]
 python_version = "3.8"
