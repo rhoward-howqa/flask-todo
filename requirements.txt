@@ -46,3 +46,4 @@ WebTest==2.0.35
 Werkzeug==0.16.1
 wkhtmltopdf==0.2
 WTForms==2.3.1
+wkhtmltopdf-pack-ng==0.12.3.0
