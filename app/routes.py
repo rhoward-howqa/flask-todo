@@ -8,6 +8,7 @@ from app.forms import LoginForm, RegistrationForm, TodoForm
 import uuid
 import pdfkit
 import pydf
+from config import *
 
 site = Blueprint('Docket', __name__, )
 
@@ -95,7 +96,13 @@ def profile():
 def pdf_template():
     todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
     rendered = render_template('pdf.html', todos=todos)
-    pdf = pdfkit.from_string(rendered, False)
+    path_wkthmltopdf = Config.WKHTMLTOPDF_CMD
+    #path_wkthmltopdf = b'C:\Program Files\wkhtmltopdf\\bin\wkhtmltopdf.exe'
+    config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
+    pdf = pdfkit.from_string(rendered, False, configuration=config)
+
+    #pdf = pdfkit.from_string(rendered, False)
+
     response = make_response(pdf)
     response.headers['Content-Type'] = 'application/pdf'
     response.headers['Content-Disposition'] = 'attachment; filename= My_Todos.pdf'

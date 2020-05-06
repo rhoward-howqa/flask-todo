@@ -14,4 +14,4 @@ class Config(object):
             stdout=subprocess.PIPE).communicate()[0].strip()
     else:
         print('loading wkhtmltopdf path on localhost')
-        WKHTMLTOPDF_CMD = os.path.join(basedir + "/static/executables/bin/", "wkhtmltopdf.exe")
+        WKHTMLTOPDF_CMD = os.path.join(basedir + "\\app\\static\\executables\\bin\\", "wkhtmltopdf.exe")
