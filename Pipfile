@@ -30,6 +30,7 @@ pdfkit = "*"
 wkhtmltopdf = "*"
 email-validator = "*"
 python-pdf = "*"
+wkhtmltopdf-pack-ng = "==0.12.3.0"
 
 [requires]
 python_version = "3.8"

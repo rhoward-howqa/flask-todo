@@ -7,6 +7,7 @@ from werkzeug.urls import url_parse
 from app.forms import LoginForm, RegistrationForm, TodoForm
 import uuid
 import pdfkit
+import pydf
 
 site = Blueprint('Docket', __name__, )
 
@@ -90,6 +91,17 @@ def profile():
     return redirect(url_for('Docket.index'))
 
 
+@site.route('/download')
+def pdf_template():
+    todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
+    rendered = render_template('pdf.html', todos=todos)
+    pdf = pdfkit.from_string(rendered, False)
+    response = make_response(pdf)
+    response.headers['Content-Type'] = 'application/pdf'
+    response.headers['Content-Disposition'] = 'attachment; filename= My_Todos.pdf'
+
+    return response
+
 # @site.route('/download')
 # def pdf_template():
 # todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
@@ -103,14 +115,3 @@ def profile():
 # response.headers['Content-Disposition'] = 'attachment; filename= My_Todos.pdf'
 
 # return response
-
-@site.route('/download')
-def pdf_template():
-    todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
-    rendered = render_template('pdf.html', todos=todos)
-    pdf = pdfkit.from_string(rendered, False)
-    response = make_response(pdf)
-    response.headers['Content-Type'] = 'application/pdf'
-    response.headers['Content-Disposition'] = 'attachment; filename= My_Todos.pdf'
-
-    return response
