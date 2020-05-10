@@ -109,6 +109,13 @@ def pdf_template():
 
     return response
 
+
+@site.route('/iframe')
+def iframe():
+    if current_user.is_authenticated:
+        return render_template('iframe.html', User=current_user)
+    return redirect(url_for('Docket.index'))
+
 # @site.route('/download')
 # def pdf_template():
 # todos = current_user.todos.order_by(Todo.timestamp.desc()).all()
