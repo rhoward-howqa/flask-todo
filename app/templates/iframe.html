@@ -1,44 +1,7 @@
 {%  extends "base.html" %}
 {% block title %}
 <title>Docket - Profile Page</title>
-{% endblock %}
-{% block navbar %}
-{% endblock %}
-{% block content %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-info alert-dismissible" role="alert">
-    {{ message }}
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
-<div class="row justify-content-md-center">
-    <div class="col-md-auto">
-        <div id="profile_container">
-            <table class="table">
-                <tbody>
-                <tr>
-                    <th scope="row">Username</th>
-                    <td>{{ User.username }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Email</th>
-                    <td>{{ User.email }}</td>
-                </tr>
-                <tr>
-                    <th scope="row">API Token</th>
-                    <td>{{ User.api_token }}</td>
-                </tr>
-                </tbody>
-            </table>
-            <p>Your API token can be used by placing <code>?token=...</code>in your header.</p>
-            <p>Full API documentation can be read <a href="/api/documentation">here</a>.</p>
-        </div>
-        <div>
-            <iframe width="400" height="600" name="iframe2" id="IF2" align="left" src="/profile" xpath="1"></iframe>
-        </div>
-    </div>
+<div>
+    <iframe width="400" height="600" name="iframe2" id="IF2" align="left" src="/profile" xpath="1"></iframe>
 </div>
 {% endblock %}
