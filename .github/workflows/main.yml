@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI-CD-Pipeline-to-aws-ElasticBeanstalk
+env:
+  EB_PACKAGE_S3_BUCKET_NAME: "flask-todo-app"
+  EB_APPLICATION_NAME: "flask-todo-app"
+  EB_ENVIRONMENT_NAME: "FlaskTodoApp-env"
+  DEPLOY_PACKAGE_NAME: "flask-app-${{ github.sha }}.zip"
+  AWS_REGION_NAME: "us-east-2"
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  my_ci_pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GIT clone from repository
+        uses: actions/checkout@v1 
+     
+      - name: Create Zip deployment package
+        run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -X *.git*
+        
+      - name: Configure my AWS Credentials
+        uses: aws-actions/congigure-aws-credentials@v1
+        with:
+          aws-acces-key-id: ${{ secrets.MY_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.MY_AWS_SECRET_KEY }}
+          aws-region: ${{ env.AWS_REGION_NAME }}
+        
+      - name: copy deployment package to s3 bucket
+        run: aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_PACKAGE_S3_BUCKET_NAME }}/
+      
+      - name: print result
+        run: echo "CI Pipeline part finished successfully"
+        
+
