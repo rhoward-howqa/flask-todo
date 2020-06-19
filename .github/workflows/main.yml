@@ -2,7 +2,7 @@
 
 name: CI-CD-Pipeline-to-aws-ElasticBeanstalk
 env:
-  EB_PACKAGE_S3_BUCKET_NAME: "flask-todo-app"
+  EB_PACKAGE_S3_BUCKET_NAME: "my-flask-todo-app"
   EB_APPLICATION_NAME: "flask-todo-app"
   EB_ENVIRONMENT_NAME: "FlaskTodoApp-env"
   DEPLOY_PACKAGE_NAME: "flask-app-${{ github.sha }}.zip"
