@@ -74,8 +74,8 @@ jobs:
     needs: [my_cd_pipeline]
     steps:
       - name: run test project test
-        uses: amiloGarciaLaRotta/watermelon-http-client@v1
+        uses: fjogeleit/http-request-action@master
         with:
           url: https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
-          method: Post
+          method: 'Post'
           run: echo response
