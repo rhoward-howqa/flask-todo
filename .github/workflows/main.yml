@@ -79,4 +79,4 @@ jobs:
           url: 'https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
           method: POST
           headers: '{"Authorization": "wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1"}'
-          run: echo response
+          run: echo response body
