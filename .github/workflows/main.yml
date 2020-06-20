@@ -76,6 +76,6 @@ jobs:
       - name: run test project test
         uses: fjogeleit/http-request-action@master
         with:
-          url: https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
+          url: 'https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
           method: 'Post'
           run: echo response
