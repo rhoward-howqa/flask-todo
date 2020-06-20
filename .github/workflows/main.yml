@@ -74,8 +74,9 @@ jobs:
     needs: [my_cd_pipeline]
     steps:
       - name: run test project test
-        uses: fjogeleit/http-request-action@master
+        uses: fjogeleit/http-request-action@v1.3.1
         with:
           url: 'https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
           method: POST
+          Authorization: 'SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1'
           run: echo response
