@@ -80,6 +80,6 @@ jobs:
           method: POST
           headers: '{"Authorization": "wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1"}'
       - name: print response
-        run: echo ${{ steps.query.outputs.status }}
+        run: echo "${{ steps.query.outputs.status }}"
         shell: bash
         
