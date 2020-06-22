@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: rhoward-howqa/github-action
+    - uses: rhoward-howqa/github-action@v1
       with:
         ProjectId: 'jrKiet1cHEyKBTcZMmLoMg'
         JobId: 'heb20uUMlkSeTvaM8K8fFg'
