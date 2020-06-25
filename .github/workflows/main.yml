@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [my_cd_pipeline]
     steps:
-      - name: run TestProject tests
+      - name: run TestProject test
         uses: CamiloGarciaLaRotta/watermelon-http-client@v1
         with:
           url: 'https://api.testproject.io/v2/projects/jrKiet1cHEyKBTcZMmLoMg/jobs/heb20uUMlkSeTvaM8K8fFg/run'
