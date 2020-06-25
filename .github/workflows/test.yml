@@ -17,6 +17,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: rhoward-howqa/github-action@master
       with:
-        ProjectId: 'jrKiet1cHEyKBTcZMmLoMg'
-        JobId: 'heb20uUMlkSeTvaM8K8fFg'
-        AuthorisationToken: 'wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1'        
+        project_id: 'jrKiet1cHEyKBTcZMmLoMg'
+        job_id: 'heb20uUMlkSeTvaM8K8fFg'
+        authorisation_token: 'wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1'        
