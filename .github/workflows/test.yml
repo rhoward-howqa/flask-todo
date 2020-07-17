@@ -19,4 +19,5 @@ jobs:
       with:
         project_id: 'jrKiet1cHEyKBTcZMmLoMg'
         job_id: 'heb20uUMlkSeTvaM8K8fFg'
-        authorisation_token: 'wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1'        
+        authorisation_token: 'wiaj2NlksX-SGf6VJctehppP1PLlYNZ5q4FNiQVY7wY1'
+        interval_time: '5'       
